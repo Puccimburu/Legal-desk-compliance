@@ -88,10 +88,10 @@ function Home() {
             
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center border-2 border-white shadow">
-                  <span className="text-sm font-bold text-gray-600">AB</span>
+                  <span className="text-sm font-bold text-gray-600">U</span>
               </div>
               <div>
-                  <p className="text-sm font-semibold text-gray-700">Aniruddha Bonde</p>
+                  <p className="text-sm font-semibold text-gray-700">USER</p>
               </div>
             </div>
           </div>

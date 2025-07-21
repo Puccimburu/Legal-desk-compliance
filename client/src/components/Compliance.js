@@ -51,7 +51,24 @@ const ChartJSDonut = ({ value, label, chartData }) => {
 function Compliance() {
   const [complianceData, setComplianceData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [category, setCategory] = useState(0); 
   const [error, setError] = useState(null);
+
+  // Function to count the number of categories
+  const countCategories = (items) => {
+    if (!items || items.length === 0) {
+      setCategory(0);
+      return 0;
+    }
+    const categories = new Set();   
+    items.forEach(item => {
+      if (item.type) {
+        categories.add(item.type.toLowerCase());
+      }
+    });
+    setCategory(categories.size);
+    return categories.size;
+  };
 
   // Function to map severity of risk to risk score based on your formula:
   // No Risk = Low = 1, Mild = Medium = 2, Severe = High = 3
@@ -107,7 +124,7 @@ function Compliance() {
     }, 0);
     
     // Calculate percentage for visualization
-    // Max possible score would be if all items were Non-Compliant (score 3 each)
+    // Max possible score would be if all items were High (score 3 each)
     const maxPossibleScore = typeItems.length * 3;
     const percentage = maxPossibleScore > 0 ? (totalScore / maxPossibleScore) * 100 : 0;
     
@@ -115,6 +132,26 @@ function Compliance() {
       value: totalScore.toString(),
       data: [percentage, 100 - percentage]
     };
+  };
+
+  // Function to determine grid columns based on category count
+  const getGridColumns = (categoryCount) => {
+    switch(categoryCount) {
+      case 1:
+        return 'md:grid-cols-1';
+      case 2:
+        return 'md:grid-cols-2';
+      case 3:
+        return 'md:grid-cols-3';
+      case 4:
+        return 'md:grid-cols-4';
+      case 5:
+        return 'md:grid-cols-5';
+      case 6:
+        return 'md:grid-cols-6';
+      default:
+        return categoryCount > 6 ? 'md:grid-cols-6' : 'md:grid-cols-4';
+    }
   };
 
   // Fetch data from API
@@ -130,7 +167,11 @@ function Compliance() {
         
         const result = await response.json();
         // Handle both array and object with compliance array
-        const data = Array.isArray(result) ? result : result.compliance;
+        let data = Array.isArray(result) ? result : result.compliance;
+        
+        // Count categories
+        countCategories(data);
+        
         setComplianceData(data);
         setError(null);
       } catch (err) {
@@ -239,7 +280,10 @@ function Compliance() {
         {/* Compliance Distribution Charts */}
         <div className="mb-10">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-medium text-gray-800">Compliance-wise Distribution of risk score</h3>
+            <h3 className="text-lg font-medium text-gray-800">
+              Compliance-wise Distribution of risk score 
+              <span className="text-sm text-gray-500 ml-2">({category} categories)</span>
+            </h3>
             <div className="flex items-center space-x-4 text-sm">
               <div className="flex items-center">
                 <span className="w-3 h-3 rounded-sm mr-2" style={{backgroundColor: '#AABDE6'}}></span>
@@ -255,7 +299,9 @@ function Compliance() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          
+          {/* Dynamic Grid Layout Based on Category Count */}
+          <div className={`grid grid-cols-1 gap-6 ${getGridColumns(category)}`}>
             {complianceTypes.map(type => {
               const typeKey = type.toLowerCase();
               const chartData = chartValues[typeKey] || { value: '0', data: [0, 100] };
@@ -268,30 +314,30 @@ function Compliance() {
                 />
               );
             })}
-            {/* Fill remaining slots if less than 4 compliance types */}
-            {complianceTypes.length < 4 && Array.from({ length: 4 - complianceTypes.length }).map((_, index) => (
-              <div key={`empty-${index}`} className="flex flex-col items-center">
-                <div className="w-32 h-32 border-2 border-dashed border-gray-300 rounded-full flex items-center justify-center">
-                  <span className="text-gray-400 text-sm">No Data</span>
-                </div>
-                <p className="mt-3 text-sm font-medium text-gray-400">-</p>
-              </div>
-            ))}
           </div>
+          
+          {/* Display message if more than 6 categories */}
+          {category > 6 && (
+            <div className="mt-4 text-center">
+              <p className="text-sm text-gray-500">
+                Showing {complianceTypes.length} compliance categories in a responsive grid layout
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Compliance Table */}
         <div className="bg-white rounded-lg border border-gray-200">
           {/* Table Header */}
-          <div className="grid grid-cols-12 gap-4 px-6 py-3 bg-gray-50 rounded-t-lg text-xs font-medium text-gray-500 uppercase">
+          <div className="grid grid-cols-12 gap-4 px-6 py-3 bg-gray-50 rounded-t-lg text-xs font-medium text-gray-500 uppercase sticky top-0 z-10">
             <div className="col-span-2">Type</div>
             <div className="col-span-3">Compliance Item</div>
             <div className="col-span-2">Severity</div>
             <div className="col-span-4">Analysis</div>
             <div className="col-span-1"></div>
           </div>
-          {/* Table Body */}
-          <div className="divide-y divide-gray-200">
+          {/* Table Body with Scroll */}
+          <div className="divide-y divide-gray-200 max-h-96 overflow-y-auto">
             {items.map((item, index) => {
               const riskLevel = getRiskLevel(item['Severity of Risk']);
               return (
