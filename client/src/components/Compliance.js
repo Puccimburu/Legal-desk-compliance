@@ -282,7 +282,6 @@ function Compliance() {
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-medium text-gray-800">
               Compliance-wise Distribution of risk score 
-              <span className="text-sm text-gray-500 ml-2">({category} categories)</span>
             </h3>
             <div className="flex items-center space-x-4 text-sm">
               <div className="flex items-center">
