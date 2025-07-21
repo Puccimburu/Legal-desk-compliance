@@ -1,0 +1,196 @@
+{
+  "compliance": [
+    {
+      "id": 1,
+      "type": "GDPR",
+      "Checklist Item": "Data Processing Roles",
+      "Compliance": "Compliant",
+      "Severity of Risk": "No Risk",
+      "Analysis": ""
+    },
+    {
+      "id": 2,
+      "type": "GDPR",
+      "Checklist Item": "Lawful Basis for Processing",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Severe",
+      "Analysis": "The contract lacks explicit mention of the lawful basis for processing personal data. This is a critical GDPR requirement."
+    },
+    {
+      "id": 3,
+      "type": "GDPR",
+      "Checklist Item": "Data Subject Rights",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Severe",
+      "Analysis": "The contract doesn't detail how data subject rights (access, rectification, erasure, etc.) will be handled or how DSARs will be processed. This is a major GDPR omission."
+    },
+    {
+      "id": 4,
+      "type": "GDPR",
+      "Checklist Item": "Security Measures",
+      "Compliance": "Partially Compliant",
+      "Severity of Risk": "Mild",
+      "Analysis": "Section 6.1(d) mentions appropriate technical and organizational measures but lacks specifics. The level of detail is insufficient for robust compliance."
+    },
+    {
+      "id": 5,
+      "type": "GDPR",
+      "Checklist Item": "Subprocessing",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Severe",
+      "Analysis": "The contract doesn't address the engagement of subprocessors, their approval by the controller, or the flow-down of GDPR obligations. This is a significant risk."
+    },
+    {
+      "id": 6,
+      "type": "GDPR",
+      "Checklist Item": "Data Breach Notification",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Severe",
+      "Analysis": "The contract lacks a clause mandating notification of data breaches to the controller within 72 hours and cooperation on investigation and reporting."
+    },
+    {
+      "id": 7,
+      "type": "GDPR",
+      "Checklist Item": "Data Retention and Deletion",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Severe",
+      "Analysis": "The contract is missing provisions for data retention periods and data deletion upon contract termination. This is a crucial GDPR requirement."
+    },
+    {
+      "id": 8,
+      "type": "GDPR",
+      "Checklist Item": "Cross-Border Data Transfers",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Severe",
+      "Analysis": "The contract doesn't address the transfer of personal data outside the EU/EEA or specify any safeguards used. This is a major GDPR concern."
+    },
+    {
+      "id": 9,
+      "type": "GDPR",
+      "Checklist Item": "Liability and Indemnity",
+      "Compliance": "Partially Compliant",
+      "Severity of Risk": "Mild",
+      "Analysis": "While there's an indemnity clause (Section 9), it doesn't specifically address liability for GDPR violations or apportionment of fines. The scope is limited."
+    },
+    {
+      "id": 10,
+      "type": "GDPR",
+      "Checklist Item": "Audit and Compliance",
+      "Compliance": "Compliant",
+      "Severity of Risk": "No Risk",
+      "Analysis": ""
+    },
+    {
+      "id": 11,
+      "type": "GDPR",
+      "Checklist Item": "Termination Provisions",
+      "Compliance": "Partially Compliant",
+      "Severity of Risk": "Mild",
+      "Analysis": "The contract outlines termination procedures (Section 4), but doesn't explicitly detail data deletion or return upon termination, which needs further clarification."
+    },
+    {
+      "id": 12,
+      "type": "GDPR",
+      "Checklist Item": "Supervisory Authority Cooperation",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Mild",
+      "Analysis": "The contract lacks a specific clause requiring cooperation with DPAs during audits or investigations. While implied, explicit mention is needed."
+    },
+    {
+      "id": 13,
+      "type": "DORA",
+      "Checklist Item": "ICT Risk Management Framework",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Mild",
+      "Analysis": "While the contract mentions DORA and ICT security, it lacks specifics on the framework used for managing ICT risks. A more detailed description is needed."
+    },
+    {
+      "id": 14,
+      "type": "DORA",
+      "Checklist Item": "Service Level Agreements (SLAs)",
+      "Compliance": "Compliant",
+      "Severity of Risk": "No Risk",
+      "Analysis": "The contract mentions SLAs in Section 2.2, indicating their inclusion, although the specifics are in a separate exhibit."
+    },
+    {
+      "id": 15,
+      "type": "DORA",
+      "Checklist Item": "Incident Reporting Obligations",
+      "Compliance": "Compliant",
+      "Severity of Risk": "No Risk",
+      "Analysis": "Section 6.2(d) explicitly addresses incident reporting and cooperation in resolution."
+    },
+    {
+      "id": 16,
+      "type": "DORA",
+      "Checklist Item": "Digital Resilience Testing",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Mild",
+      "Analysis": "The contract mentions cooperation on DORA compliance, but lacks explicit details on the testing procedures and frequency."
+    },
+    {
+      "id": 17,
+      "type": "DORA",
+      "Checklist Item": "Business Continuity Plans (BCP)",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Mild",
+      "Analysis": "No mention of BCPs or how the service provider will ensure business continuity in case of disruptions."
+    },
+    {
+      "id": 18,
+      "type": "DORA",
+      "Checklist Item": "Data Protection Standards",
+      "Compliance": "Compliant",
+      "Severity of Risk": "No Risk",
+      "Analysis": "Section 6 details GDPR and DORA compliance regarding data protection, including technical and organizational measures."
+    },
+    {
+      "id": 19,
+      "type": "DORA",
+      "Checklist Item": "Approval for Subcontracting",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Mild",
+      "Analysis": "The contract doesn't address the process for approving subcontractors, a key aspect of DORA compliance."
+    },
+    {
+      "id": 20,
+      "type": "DORA",
+      "Checklist Item": "Termination and Exit Strategy",
+      "Compliance": "Compliant",
+      "Severity of Risk": "No Risk",
+      "Analysis": "Section 4 outlines clear termination clauses, including procedures for data return and transition."
+    },
+    {
+      "id": 21,
+      "type": "DORA",
+      "Checklist Item": "Audit Rights",
+      "Compliance": "Compliant",
+      "Severity of Risk": "No Risk",
+      "Analysis": "Section 6.1(f) grants the client audit rights to ensure compliance with GDPR and, by extension, relevant DORA requirements."
+    },
+    {
+      "id": 22,
+      "type": "DORA",
+      "Checklist Item": "Critical ICT Provider Designation",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Severe",
+      "Analysis": "The contract doesn't explicitly address the designation of the service provider as critical or non-critical, a crucial aspect for DORA compliance."
+    },
+    {
+      "id": 23,
+      "type": "DORA",
+      "Checklist Item": "Cybersecurity Controls",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Mild",
+      "Analysis": "The contract mentions \"robust ICT security measures\" but lacks specifics on the implemented controls."
+    },
+    {
+      "id": 24,
+      "type": "DORA",
+      "Checklist Item": "Penalties for Non-Compliance",
+      "Compliance": "Non-Compliant",
+      "Severity of Risk": "Mild",
+      "Analysis": "While late payment penalties are specified, there are no penalties explicitly defined for non-compliance with DORA requirements."
+    }
+  ]
+}
